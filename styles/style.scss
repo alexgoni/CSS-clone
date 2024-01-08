@@ -1,0 +1,115 @@
+@import "./reset.scss";
+
+body {
+  background-color: #dce6d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  width: 420px;
+  height: 95%;
+  background-color: black;
+  border-radius: 50px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  overflow-x: hidden;
+  .header__list {
+    display: flex;
+    color: white;
+    gap: 10px;
+    width: max-content;
+
+    .header__list-item {
+      border: 1px solid rgba($color: #fff, $alpha: 0.5);
+      border-radius: 20px;
+      padding: 10px;
+    }
+
+    .header__list-item--inverted {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.cards {
+  margin-top: 20px;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+  gap: 10px;
+
+  .cards__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 10px;
+
+    .card__title {
+      font-size: 24px;
+    }
+
+    .card__footer {
+      display: flex;
+      font-size: 12px;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+
+      .price {
+        background-color: #ffdd2c;
+      }
+
+      .length {
+        background-color: white;
+      }
+    }
+
+    &:nth-child(3n) {
+      grid-column: span 2;
+      .price {
+        background-color: #dda6f3;
+      }
+    }
+
+    &:first-child {
+      background-color: #292d33;
+      border: 1px solid white;
+      .card__title {
+        color: white;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: white;
+    }
+
+    &:nth-child(3) {
+      background-color: #f9fdba;
+    }
+
+    &:nth-child(4) {
+      background-color: #b2a0f6;
+    }
+
+    &:nth-child(5) {
+      background-color: #ffd5d5;
+    }
+
+    &:nth-child(6) {
+      background-color: #d0fedd;
+    }
+  }
+}
