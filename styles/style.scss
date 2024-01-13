@@ -1,112 +1,133 @@
 @import "./reset.scss";
 
-$borderColor: rgba(0, 0, 0, 0.4);
-$borderWidth: 2px;
+$gridGap: 2px;
+$borderRadius: 7px;
 
 body {
-  display: grid;
-  grid-template-rows: 1fr 10fr;
+  background-color: hsl(272, 39%, 48%);
   height: 100vh;
-}
-
-.header {
-  .header__nav {
-    ul {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr) 1.5fr repeat(5, 1fr);
-      background-color: $borderColor;
-      gap: $borderWidth;
-      .header__tab {
-        padding: 30px 0;
-        background-color: white;
-        text-align: center;
-        font-weight: 300;
-        font-size: 14px;
-        &:nth-child(6) {
-          text-transform: uppercase;
-          font-weight: bold;
-          font-size: 22px;
-        }
-      }
-    }
-  }
-  .header__breadcrumbs {
-    border-top: $borderWidth solid $borderColor;
-    border-bottom: $borderWidth solid $borderColor;
-    padding: 10px 0px;
-    padding-left: 50px;
-    font-size: 12px;
-    .header__crumb {
-      font-weight: 600;
-      &:last-child {
-        opacity: 0.5;
-      }
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .wrapper {
+    width: 60%;
+    height: 70%;
+    background-color: #191919;
+    padding: 20px;
   }
 }
 
-.product {
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  background-color: $borderColor;
-  gap: $borderWidth;
-  .product__img {
-    background-image: url("https://source.unsplash.com/random");
-    background-size: cover;
-  }
-  .product__info {
-    display: grid;
-    gap: $borderWidth;
-    grid-template-rows: 1.5fr 1fr;
-    .product__header {
-      background-color: white;
+  height: 100%;
+  grid-template-columns: 1.2fr 1fr;
+  gap: $gridGap;
+}
+
+.grid__col:first-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2.3fr 1fr;
+  gap: $gridGap;
+  .header {
+    background-color: white;
+    grid-column: span 2;
+    border-radius: $borderRadius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    .header__top {
       display: flex;
-      gap: 10px;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 50px;
-      font-weight: bold;
-      .product__category {
-        font-size: 22px;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      .header__label {
         text-transform: uppercase;
-      }
-      .product__title {
-        font-size: 44px;
-      }
-      .product__add-to-cart {
-        display: flex;
-        gap: 50px;
-        .product__price {
-          font-size: 30px;
-        }
+        font-size: 10px;
+        font-weight: bold;
+        background-color: #daab29;
+        padding: 4px 15px;
+        border-radius: 12px;
       }
     }
-    .product__footer {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: $borderWidth;
-      & > div {
+    .header__title {
+      text-align: center;
+      font-size: 80px;
+      font-weight: bolder;
+    }
+    .header__subtitle {
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      border-top: 1px solid black;
+      padding-top: 10px;
+    }
+  }
+}
+
+.grid__img {
+  border-radius: $borderRadius;
+  background-image: url("https://source.unsplash.com/random");
+  background-size: cover;
+}
+
+.subgrid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1.2fr 1fr 1fr;
+  gap: $gridGap;
+  .nav {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    font-weight: lighter;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-size: 12px;
+    }
+    .nav__cta {
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+  }
+  .grid__cells {
+    position: relative;
+    .grid__cell {
+      padding: 15px;
+      border-radius: $borderRadius;
+      &:first-child {
+        background-color: #daab29;
+      }
+      &:nth-child(2) {
+        margin-top: $gridGap;
         background-color: white;
       }
-      .product__description p {
-        width: 70%;
-        padding: 25px 0;
-        margin: 0 auto;
-        font-size: 14px;
-      }
-      .product__faq {
-        padding: 50px;
-        font-weight: bold;
-        .product__question {
-          display: flex;
-          justify-content: space-between;
-          text-transform: uppercase;
-          margin-bottom: 5px;
-          padding: 5px;
-          padding-top: 0px;
-          border-bottom: 1.5px solid black;
-        }
-      }
+    }
+    .grid__cell-cta {
+      color: white;
+      position: absolute;
+      bottom: 0px;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+  }
+  .blog-post {
+    grid-column: span 2;
+    background-color: white;
+    border-radius: $borderRadius;
+    padding: 25px;
+    display: flex;
+    align-items: flex-end;
+    p {
+      font-size: 12px;
+      font-weight: 500;
     }
   }
 }
